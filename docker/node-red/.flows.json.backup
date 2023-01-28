@@ -35,11 +35,25 @@
         "sessionExpiry": ""
     },
     {
-        "id": "b4c42764125a574f",
+        "id": "2e6381f31b36277a",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "influx",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://docker-influxdb-1:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "812b85a193766211",
         "type": "mqtt in",
         "z": "db4e0b558bbf27d3",
-        "name": "connection_check",
-        "topic": "topic",
+        "name": "gas-topic",
+        "topic": "controller1/gas",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "b71bd03593583ea8",
@@ -47,10 +61,163 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 390,
-        "y": 380,
+        "x": 420,
+        "y": 120,
         "wires": [
-            []
+            [
+                "dcab9a91ede3e50a"
+            ]
         ]
+    },
+    {
+        "id": "0ca3f32f76123a55",
+        "type": "mqtt in",
+        "z": "db4e0b558bbf27d3",
+        "name": "water-topic",
+        "topic": "controller1/water",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "b71bd03593583ea8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 420,
+        "y": 220,
+        "wires": [
+            [
+                "7dd57cb32710d952"
+            ]
+        ]
+    },
+    {
+        "id": "82e57d12f2cff7ae",
+        "type": "mqtt in",
+        "z": "db4e0b558bbf27d3",
+        "name": "lamp-topic",
+        "topic": "controller1/lamp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "b71bd03593583ea8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 420,
+        "y": 320,
+        "wires": [
+            [
+                "2e644f4bae223c21"
+            ]
+        ]
+    },
+    {
+        "id": "9e276ba829c47b83",
+        "type": "mqtt in",
+        "z": "db4e0b558bbf27d3",
+        "name": "lock-topic",
+        "topic": "controller1/lock",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "b71bd03593583ea8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 420,
+        "y": 440,
+        "wires": [
+            [
+                "c750a523d88fef21"
+            ]
+        ]
+    },
+    {
+        "id": "119fe9e687467b7b",
+        "type": "debug",
+        "z": "db4e0b558bbf27d3",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1300,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "dcab9a91ede3e50a",
+        "type": "influxdb out",
+        "z": "db4e0b558bbf27d3",
+        "influxdb": "2e6381f31b36277a",
+        "name": "gas-influxdb",
+        "measurement": "gas",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "sweetsignal",
+        "bucket": "IOT-buck",
+        "x": 870,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "7dd57cb32710d952",
+        "type": "influxdb out",
+        "z": "db4e0b558bbf27d3",
+        "influxdb": "2e6381f31b36277a",
+        "name": "water-influxdb",
+        "measurement": "water",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "sweetsignal",
+        "bucket": "IOT-buck",
+        "x": 880,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "2e644f4bae223c21",
+        "type": "influxdb out",
+        "z": "db4e0b558bbf27d3",
+        "influxdb": "2e6381f31b36277a",
+        "name": "lamp-influxdb",
+        "measurement": "lamp",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "sweetsignal",
+        "bucket": "IOT-buck",
+        "x": 870,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "c750a523d88fef21",
+        "type": "influxdb out",
+        "z": "db4e0b558bbf27d3",
+        "influxdb": "2e6381f31b36277a",
+        "name": "lock-influxdb",
+        "measurement": "lock",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "sweetsignal",
+        "bucket": "IOT-buck",
+        "x": 870,
+        "y": 440,
+        "wires": []
     }
 ]
