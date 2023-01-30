@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-8dqdwzxcp6hw&*gk8+s@&$u4rb4uruon#bscgywk@b218c*+u9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["192.168.1.13","localhost"]
 
 
 # Application definition
@@ -145,3 +145,10 @@ INFLUXDB_URL = "http://localhost:8086"
 INFLUXDB_ORG = "sweetsignal"
 INFLUXDB_TOKEN = "c7sFQXMCgt6WShaWHuJkcHDpnFJhdaTcb8xtveNPoFFixtj2_-yMpUqc5HvmJpADU2sSEmlMXY_oXfc4slJcXQ=="
 INFLUXDB_BUCKET = "IOT-buck"
+
+# MQTT CONFIG
+
+MQTT_HOST = "docker-mosquitto-1"
+MQTT_PORT = 1883
+MQTT_USER = "admin"
+MQTT_PASS = "admin"
